@@ -1,7 +1,10 @@
 {
   "categories": [
     "1. People & Family (الأشخاص والعائلة)",
-    "2. Body Parts & Health (أجزاء الجسم والصحة)"
+    "2. Body Parts & Health (أجزاء الجسم والصحة)",
+    "3. House & Home (البيت والمنزل)",
+    "4. Food & Drinks (الطعام والمشروبات)",
+    "5. Clothes & Accessories (الملابس والإكسسوارات)"
   ],
   "words": [
     {"id":1,"cat":"1. People & Family (الأشخاص والعائلة)","en":"Person","ar":"شخص","exEn":"She is a kind person.","exAr":"هي شخص طيب."},
@@ -103,6 +106,39 @@
     {"id":97,"cat":"2. Body Parts & Health (أجزاء الجسم والصحة)","en":"Medicine","ar":"دواء","exEn":"Take your medicine now.","exAr":"تناول دواءك الآن."},
     {"id":98,"cat":"2. Body Parts & Health (أجزاء الجسم والصحة)","en":"Pill","ar":"حبة دواء","exEn":"Swallow one pill daily.","exAr":"ابلع حبة واحدة يومياً."},
     {"id":99,"cat":"2. Body Parts & Health (أجزاء الجسم والصحة)","en":"Vaccine","ar":"لقاح / تطعيم","exEn":"Get a flu vaccine.","exAr":"احصل على لقاح الإنفلونزا."},
-    {"id":100,"cat":"2. Body Parts & Health (أجزاء الجسم والصحة)","en":"Clinic","ar":"عيادة","exEn":"Visit the health clinic.","exAr":"زر العيادة الصحية."}
-  ]
-    }
+    {"id":100,"cat":"2. Body Parts & Health (أجزاء الجسم والصحة)","en":"Clinic","ar":"عيادة","exEn":"Visit the health clinic.","exAr":"زر العيادة الصحية."},
+    {"id":101,"cat":"3. House & Home (البيت والمنزل)","en":"House","ar":"منزل","exEn":"A big house with a garden.","exAr":"منزل كبير مع حديقة."},
+    {"id":102,"cat":"3. House & Home (البيت والمنزل)","en":"Home","ar":"بيت","exEn":"The home is comfortable.","exAr":"البيت مريح."},
+    {"id":103,"cat":"3. House & Home (البيت والمنزل)","en":"Room","ar":"غرفة","exEn":"Clean your room.","exAr":"نظف غرفتك."},
+    {"id":104,"cat":"3. House & Home (البيت والمنزل)","en":"Door","ar":"باب","exEn":"Lock the front door.","exAr":"أقفل الباب الأمامي."},
+    {"id":105,"cat":"3. House & Home (البيت والمنزل)","en":"Window","ar":"نافذة","exEn":"Open the window.","exAr":"افتح النافذة."},
+    {"id":106,"cat":"3. House & Home (البيت والمنزل)","en":"Wall","ar":"جدار","exEn":"The white wall needs paint.","exAr":"الجدار الأبيض يحتاج طلاء."},
+    {"id":107,"cat":"3. House & Home (البيت والمنزل)","en":"Floor","ar":"أرضية","exEn":"Sweep the wooden floor.","exAr":"اكنس الأرضية الخشبية."},
+    {"id":108,"cat":"3. House & Home (البيت والمنزل)","en":"Roof","ar":"سقف / سطح","exEn":"Rain hits the roof.","exAr":"المطر يضرب السقف."},
+    {"id":109,"cat":"3. House & Home (البيت والمنزل)","en":"Ceiling","ar":"سقف داخلي","exEn":"The fan hangs from the ceiling.","exAr":"المروحة تتدلى من السقف."},
+    {"id":110,"cat":"3. House & Home (البيت والمنزل)","en":"Gate","ar":"بوابة","exEn":"Close the iron gate.","exAr":"أغلق البوابة الحديدية."},
+    {"id":111,"cat":"3. House & Home (البيت والمنزل)","en":"Table","ar":"طاولة","exEn":"Put the plates on the table.","exAr":"ضع الصحون على الطاولة."},
+    {"id":112,"cat":"3. House & Home (البيت والمنزل)","en":"Chair","ar":"كرسي","exEn":"Sit on the wooden chair.","exAr":"اجلس على الكرسي الخشبي."},
+    {"id":113,"cat":"3. House & Home (البيت والمنزل)","en":"Bed","ar":"سرير","exEn":"Make your bed daily.","exAr":"رتب سريرك يومياً."},
+    {"id":114,"cat":"3. House & Home (البيت والمنزل)","en":"Sofa","ar":"أريكة","exEn":"A soft sofa in the living room.","exAr":"أريكة ناعمة في غرفة المعيشة."},
+    {"id":115,"cat":"3. House & Home (البيت والمنزل)","en":"Desk","ar":"مكتب","exEn":"Study at your desk.","exAr":"ادرس على مكتبك."},
+    {"id":116,"cat":"3. House & Home (البيت والمنزل)","en":"Cabinet","ar":"خزانة","exEn":"The kitchen cabinet is open.","exAr":"خزانة المطبخ مفتوحة."},
+    {"id":117,"cat":"3. House & Home (البيت والمنزل)","en":"Shelf","ar":"رف","exEn":"The books are on the shelf.","exAr":"الكتب على الرف."},
+    {"id":118,"cat":"3. House & Home (البيت والمنزل)","en":"Drawer","ar":"درج","exEn":"Open the top drawer.","exAr":"افتح الدرج العلوي."},
+    {"id":119,"cat":"3. House & Home (البيت والمنزل)","en":"Mirror","ar":"مرآة","exEn":"Look in the mirror.","exAr":"انظر في المرآة."},
+    {"id":120,"cat":"3. House & Home (البيت والمنزل)","en":"Clock","ar":"ساعة حائط","exEn":"The wall clock ticks loudly.","exAr":"ساعة الحائط تكتك بصوت عالٍ."},
+    {"id":121,"cat":"3. House & Home (البيت والمنزل)","en":"Lamp","ar":"مصباح","exEn":"Turn on the desk lamp.","exAr":"شَغِّل مصباح المكتب."},
+    {"id":122,"cat":"3. House & Home (البيت والمنزل)","en":"Light","ar":"ضوء","exEn":"Turn off the light.","exAr":"أطفئ الضوء."},
+    {"id":123,"cat":"3. House & Home (البيت والمنزل)","en":"Carpet","ar":"سجاد","exEn":"A soft carpet under your feet.","exAr":"سجاد ناعم تحت قدميك."},
+    {"id":124,"cat":"3. House & Home (البيت والمنزل)","en":"Curtain","ar":"ستارة","exEn":"Close the curtain.","exAr":"أغلق الستارة."},
+    {"id":125,"cat":"3. House & Home (البيت والمنزل)","en":"Pillow","ar":"وسادة","exEn":"A soft pillow for your head.","exAr":"وسادة ناعمة لرأسك."},
+    {"id":126,"cat":"3. House & Home (البيت والمنزل)","en":"Blanket","ar":"بطانية","exEn":"A warm blanket in winter.","exAr":"بطانية دافئة للشتاء."},
+    {"id":127,"cat":"3. House & Home (البيت والمنزل)","en":"Towel","ar":"منشفة","exEn":"Dry your hands with a towel.","exAr":"جفف يديك بالمنشفة."},
+    {"id":128,"cat":"3. House & Home (البيت والمنزل)","en":"Sink","ar":"مغسلة","exEn":"Water drains in the sink.","exAr":"الماء ينزل في المغسلة."},
+    {"id":129,"cat":"3. House & Home (البيت والمنزل)","en":"Shower","ar":"دُش","exEn":"Take a hot shower.","exAr":"خذ دُشاً ساخناً."},
+    {"id":130,"cat":"3. House & Home (البيت والمنزل)","en":"Key","ar":"مفتاح","exEn":"Turn the key in the lock.","exAr":"أدر المفتاح في القفل."},
+    {"id":131,"cat":"3. House & Home (البيت والمنزل)","en":"Lock","ar":"قفل","exEn":"A safe lock protects the home.","exAr":"القفل الآمن يحمي المنزل."},
+    {"id":132,"cat":"3. House & Home (البيت والمنزل)","en":"Stairs","ar":"سلم / درجات","exEn":"Climb up the stairs.","exAr":"اصعد السلم."},
+    {"id":133,"cat":"3. House & Home (البيت والمنزل)","en":"Balcony","ar":"شرفة / بلكونة","exEn":"A great view from the balcony.","exAr":"منظر رائع من الشرفة."},
+    {"id":134,"cat":"3. House & Home (البيت والمنزل)","en":"Kitchen","ar":"مطبخ","exEn":"Cook food in the kitchen.","exAr":"اطبخ الطعام في المطبخ."},
+    {"id":135,"cat":"3. House & 
