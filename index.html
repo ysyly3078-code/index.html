@@ -151,7 +151,7 @@ async function loadWords() {
     state.allWords = data.words || [];
     state.categories = data.categories || [];
   } catch (e) {
-    alert('خطأ في تحميل words.json\n\n' + e.message + '\n\nملاحظة: fetch لا يعمل مع file:// — استخدم سيرفر محلي أو GitHub Pages.');
+    alert('خطأ في تحميل words.json\n\n' + e.message);
   }
 }
 
@@ -172,9 +172,7 @@ function catNum(s) { const m = String(s).match(/^(\d+)/); return m ? parseInt(m[
 function onCategoryChange(val) { state.currentCat = val; state.index = 0; applyFilter(); }
 
 function applyFilter() {
-  state.filtered = state.currentCat === 'all'
-    ? [...state.allWords]
-    : state.allWords.filter(w => w.cat === state.currentCat);
+  state.filtered = state.currentCat === 'all' ? [...state.allWords] : state.allWords.filter(w => w.cat === state.currentCat);
   state.index = 0;
   renderCard();
 }
@@ -284,4 +282,4 @@ function showToast(msg) {
 }
 </script>
 </body>
-  </html>
+</html>
