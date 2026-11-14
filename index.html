@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+<title>1000 English Nouns · إتقان الأسماء</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  body { font-family: 'Cairo','Inter',sans-serif; background: linear-gradient(180deg,#f8fafc 0%,#eef2ff 100%); min-height: 100vh; }
+  .en { font-family:'Inter',sans-serif; direction:ltr; unicode-bidi:isolate; }
+  @keyframes pulse-ring { 0%{transform:scale(.95);box-shadow:0 0 0 0 rgba(37,99,235,.5);} 70%{transform:scale(1.05);box-shadow:0 0 0 12px rgba(37,99,235,0);} 100%{transform:scale(.95);box-shadow:0 0 0 0 rgba(37,99,235,0);} }
+  .speaking { animation: pulse-ring 1s infinite; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
+  .fade-in { animation: fadeIn .25s ease-out; }
+</style>
+</head>
+<body class="text-slate-900">
+
+<header class="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+  <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-2.5">
+      <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-extrabold en text-sm">1000</div>
+      <div>
+        <h1 class="font-extrabold text-slate-900 text-base leading-tight">إتقان الأسماء</h1>
+        <p class="text-[10px] text-slate-500 en font-semibold">1000 English Nouns</p>
+      </div>
+    </div>
+    <button onclick="openSettings()" aria-label="الإعدادات"
+      class="w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center text-lg transition active:scale-95">
+      ⚙️
+    </button>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-4 py-5">
+  <div class="flex items-center gap-2 mb-4">
+    <select id="categorySelect" onchange="onCategoryChange(this.value)"
+      class="flex-1 text-sm bg-white border border-slate-300 rounded-xl px-3 py-2.5 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <option value="all">كل الأقسام</option>
+    </select>
+    <div id="progressBadge" class="px-3 py-2.5 rounded-xl bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 whitespace-nowrap en">1 / 100</div>
+  </div>
+
+  <div id="cardBox" class="bg-white rounded-3xl shadow-lg border border-slate-200 p-6 sm:p-8 min-h-[420px] flex flex-col fade-in">
+    <div id="catTag" class="text-[11px] font-bold text-slate-500 mb-3 text-center"></div>
+    <div class="text-center mb-4">
+      <div id="wordEn" class="en text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">—</div>
+      <button id="speakWordBtn" onclick="speakCurrentWord()" aria-label="نطق الكلمة"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-bold shadow-md transition">
+        <span class="text-xl">🔊</span>
+        <span class="text-sm">اسمع النطق</span>
+      </button>
+    </div>
+    <div class="text-center mb-6">
+      <div class="text-xs text-slate-400 font-bold mb-1">المعنى</div>
+      <div id="wordAr" class="text-2xl font-extrabold text-emerald-700">—</div>
+    </div>
+    <div class="mt-auto bg-slate-50 rounded-2xl p-4 border border-slate-200">
+      <div class="flex items-start gap-2 mb-2">
+        <button onclick="speakCurrentExample()" aria-label="نطق المثال"
+          class="w-8 h-8 rounded-lg bg-white hover:bg-blue-50 text-blue-600 border border-slate-200 flex items-center justify-center shrink-0 transition">
+          🔉
+        </button>
+        <div class="flex-1 min-w-0">
+          <div id="exampleEn" class="en text-sm font-semibold text-slate-800 leading-relaxed mb-1">—</div>
+          <div id="exampleAr" class="text-xs text-slate-600">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4 grid grid-cols-3 gap-2">
+    <button onclick="prevCard()" aria-label="السابق"
+      class="py-3.5 rounded-2xl bg-white hover:bg-slate-50 active:scale-95 border border-slate-300 text-slate-700 font-bold shadow-sm transition flex items-center justify-center gap-1.5">
+      <span class="text-lg">→</span><span class="text-sm">السابق</span>
+    </button>
+    <button onclick="shuffle()" aria-label="خلط عشوائي"
+      class="py-3.5 rounded-2xl bg-white hover:bg-slate-50 active:scale-95 border border-slate-300 text-slate-700 font-bold shadow-sm transition flex items-center justify-center gap-1.5">
+      <span class="text-lg">🔀</span><span class="text-sm">خلط</span>
+    </button>
+    <button onclick="nextCard()" aria-label="التالي"
+      class="py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-bold shadow-sm transition flex items-center justify-center gap-1.5">
+      <span class="text-sm">التالي</span><span class="text-lg">←</span>
+    </button>
+  </div>
+
+  <p class="mt-4 text-center text-[11px] text-slate-400">
+    اضغط على 🔊 لسماع النطق الأمريكي · استخدم → ← للتنقل
+  </p>
+</main>
+
+<div id="settingsModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+  <div class="bg-white rounded-2xl max-w-md w-full p-5 shadow-xl">
+    <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+      <h3 class="text-lg font-extrabold">الإعدادات</h3>
+      <button onclick="closeSettings()" aria-label="إغلاق" class="text-slate-400 hover:text-slate-700 text-xl w-8 h-8 rounded-lg">✕</button>
+    </div>
+    <div class="space-y-4">
+      <div>
+        <label class="block text-xs font-bold text-slate-700 mb-1.5">الصوت (Voice)</label>
+        <select id="voiceSelect" onchange="onVoiceChange(this.value)"
+          class="w-full text-sm bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 en focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="">جاري التحميل...</option>
+        </select>
+        <p class="text-[11px] text-slate-500 mt-1">يُفضل اختيار صوت أمريكي (en-US) لوضوح النطق.</p>
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-slate-700 mb-1.5">سرعة النطق</label>
+        <select id="rateSelect" onchange="onRateChange(this.value)"
+          class="w-full text-sm bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="0.7">0.7x — بطيء جداً</option>
+          <option value="0.85" selected>0.85x — واضح (موصى به)</option>
+          <option value="1.0">1.0x — طبيعي</option>
+          <option value="1.2">1.2x — سريع</option>
+        </select>
+      </div>
+      <div class="pt-2 border-t border-slate-100">
+        <button onclick="testAudio()" class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-sm active:scale-95 transition">
+          🔊 اختبار النطق الأمريكي
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden">
+  <div id="toastMsg" class="px-5 py-3 rounded-xl bg-slate-900 text-white text-sm font-bold shadow-lg"></div>
+</div>
+
+<script>
+const state = {
+  allWords: [], categories: [], currentCat: 'all', filtered: [], index: 0,
+  voices: [], selectedVoice: '', rate: 0.85
+};
+
+document.addEventListener('DOMContentLoaded', init);
+
+async function init() {
+  await loadWords();
+  populateCategories();
+  applyFilter();
+  initVoices();
+}
+
+async function loadWords() {
+  try {
+    const res = await fetch('words.json');
+    if (!res.ok) throw new Error('words.json غير موجود');
+    const data = await res.json();
+    state.allWords = data.words || [];
+    state.categories = data.categories || [];
+  } catch (e) {
+    alert('خطأ في تحميل words.json\n\n' + e.message + '\n\nملاحظة: fetch لا يعمل مع file:// — استخدم سيرفر محلي أو GitHub Pages.');
+  }
+}
+
+function populateCategories() {
+  const sel = document.getElementById('categorySelect');
+  sel.innerHTML = '<option value="all">كل الأقسام (' + state.allWords.length + ')</option>';
+  const allCats = [...new Set(state.allWords.map(w => w.cat))].sort((a,b)=>catNum(a)-catNum(b));
+  allCats.forEach(cat => {
+    const count = state.allWords.filter(w => w.cat === cat).length;
+    const opt = document.createElement('option');
+    opt.value = cat;
+    opt.textContent = cat.replace(/^\d+\.\s*/, '') + ' (' + count + ')';
+    sel.appendChild(opt);
+  });
+}
+function catNum(s) { const m = String(s).match(/^(\d+)/); return m ? parseInt(m[1]) : 999; }
+
+function onCategoryChange(val) { state.currentCat = val; state.index = 0; applyFilter(); }
+
+function applyFilter() {
+  state.filtered = state.currentCat === 'all'
+    ? [...state.allWords]
+    : state.allWords.filter(w => w.cat === state.currentCat);
+  state.index = 0;
+  renderCard();
+}
+
+function renderCard() {
+  const box = document.getElementById('cardBox');
+  box.classList.remove('fade-in');
+  void box.offsetWidth;
+  box.classList.add('fade-in');
+  if (state.filtered.length === 0) {
+    document.getElementById('wordEn').textContent = '—';
+    document.getElementById('wordAr').textContent = 'لا توجد كلمات';
+    document.getElementById('exampleEn').textContent = '';
+    document.getElementById('exampleAr').textContent = '';
+    document.getElementById('catTag').textContent = '';
+    document.getElementById('progressBadge').textContent = '0 / 0';
+    return;
+  }
+  const w = state.filtered[state.index];
+  document.getElementById('wordEn').textContent = w.en;
+  document.getElementById('wordAr').textContent = w.ar;
+  document.getElementById('exampleEn').textContent = w.exEn || '';
+  document.getElementById('exampleAr').textContent = w.exAr || '';
+  document.getElementById('catTag').textContent = w.cat.replace(/^\d+\.\s*/, '');
+  document.getElementById('progressBadge').textContent = (state.index + 1) + ' / ' + state.filtered.length;
+}
+
+function nextCard() { if (!state.filtered.length) return; state.index = (state.index + 1) % state.filtered.length; renderCard(); }
+function prevCard() { if (!state.filtered.length) return; state.index = (state.index - 1 + state.filtered.length) % state.filtered.length; renderCard(); }
+function shuffle() {
+  for (let i = state.filtered.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [state.filtered[i], state.filtered[j]] = [state.filtered[j], state.filtered[i]];
+  }
+  state.index = 0; renderCard(); showToast('تم الخلط 🔀');
+}
+
+function initVoices() {
+  const load = () => {
+    state.voices = speechSynthesis.getVoices();
+    const sel = document.getElementById('voiceSelect');
+    sel.innerHTML = '<option value="">تلقائي (en-US)</option>';
+    state.voices.filter(v => v.lang.startsWith('en')).forEach(v => {
+      const opt = document.createElement('option');
+      opt.value = v.name;
+      opt.textContent = v.name + ' · ' + v.lang;
+      sel.appendChild(opt);
+    });
+    const best = pickBestUSVoice();
+    if (best) { state.selectedVoice = best.name; sel.value = best.name; }
+  };
+  load();
+  speechSynthesis.onvoiceschanged = load;
+}
+
+function pickBestUSVoice() {
+  const us = state.voices.filter(v => v.lang === 'en-US' || v.lang === 'en_US');
+  const preferred = ['Google US English','Microsoft Aria','Microsoft Zira','Samantha','Alex','Ava','Allison'];
+  for (const p of preferred) { const f = us.find(v => v.name.includes(p)); if (f) return f; }
+  return us[0] || state.voices.find(v => v.lang.startsWith('en'));
+}
+
+function onVoiceChange(name) { state.selectedVoice = name; showToast('تم تغيير الصوت'); }
+function onRateChange(val) { state.rate = parseFloat(val); }
+
+function speak(text) {
+  if (!text || !('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US'; u.rate = state.rate; u.pitch = 1.0;
+  if (state.selectedVoice) {
+    const v = state.voices.find(x => x.name === state.selectedVoice);
+    if (v) u.voice = v;
+  }
+  speechSynthesis.speak(u);
+}
+function speakCurrentWord() {
+  if (!state.filtered.length) return;
+  const btn = document.getElementById('speakWordBtn');
+  btn.classList.add('speaking');
+  setTimeout(() => btn.classList.remove('speaking'), 1200);
+  speak(state.filtered[state.index].en);
+}
+function speakCurrentExample() { if (!state.filtered.length) return; speak(state.filtered[state.index].exEn || ''); }
+function testAudio() { speak('Hello, this is an American English pronunciation test.'); }
+
+function openSettings() { const m = document.getElementById('settingsModal'); m.classList.remove('hidden'); m.classList.add('flex'); }
+function closeSettings() { const m = document.getElementById('settingsModal'); m.classList.add('hidden'); m.classList.remove('flex'); }
+document.getElementById('settingsModal').addEventListener('click', e => {
+  if (e.target.id === 'settingsModal') closeSettings();
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') nextCard();
+  if (e.key === 'ArrowRight') prevCard();
+  if (e.key === ' ' && e.target.tagName !== 'SELECT' && e.target.tagName !== 'BUTTON') {
+    e.preventDefault(); speakCurrentWord();
+  }
+});
+
+function showToast(msg) {
+  const box = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  box.classList.remove('hidden');
+  clearTimeout(window._t);
+  window._t = setTimeout(() => box.classList.add('hidden'), 1800);
+}
+</script>
+</body>
+  </html>
