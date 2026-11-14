@@ -39,7 +39,7 @@
       class="flex-1 text-sm bg-white border border-slate-300 rounded-xl px-3 py-2.5 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500">
       <option value="all">كل الأقسام</option>
     </select>
-    <div id="progressBadge" class="px-3 py-2.5 rounded-xl bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 whitespace-nowrap en">1 / 100</div>
+    <div id="progressBadge" class="px-3 py-2.5 rounded-xl bg-blue-50 text-blue-700 text-xs font-extrabold border border-blue-200 whitespace-nowrap en">1 / 1000</div>
   </div>
 
   <div id="cardBox" class="bg-white rounded-3xl shadow-lg border border-slate-200 p-6 sm:p-8 min-h-[420px] flex flex-col fade-in">
@@ -143,15 +143,31 @@ async function init() {
   initVoices();
 }
 
+// ===== دالة التحميل المعدلة لقراءة 4 ملفات =====
 async function loadWords() {
   try {
-    const res = await fetch('words.json');
-    if (!res.ok) throw new Error('words.json غير موجود');
-    const data = await res.json();
-    state.allWords = data.words || [];
-    state.categories = data.categories || [];
+    const files = ['words_1.json', 'words_2.json', 'words_3.json', 'words_4.json'];
+    const responses = await Promise.all(files.map(f => fetch(f).catch(() => null)));
+    
+    let allWords = [];
+    let allCategories = new Set();
+    
+    for (const res of responses) {
+      if (res && res.ok) {
+        const data = await res.json();
+        if (data.words) allWords.push(...data.words);
+        if (data.categories) data.categories.forEach(c => allCategories.add(c));
+      }
+    }
+    
+    state.allWords = allWords;
+    state.categories = Array.from(allCategories);
+    
+    if (state.allWords.length === 0) {
+      throw new Error('لم يتم العثور على أي كلمات. تأكد من رفع الملفات.');
+    }
   } catch (e) {
-    alert('خطأ في تحميل words.json\n\n' + e.message);
+    alert('خطأ في تحميل البيانات\n\n' + e.message);
   }
 }
 
@@ -282,4 +298,4 @@ function showToast(msg) {
 }
 </script>
 </body>
-</html>
+  </html>
